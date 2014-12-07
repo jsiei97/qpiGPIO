@@ -11,6 +11,10 @@ echo 17 > /sys/class/gpio/export
 echo "out" > /sys/class/gpio/gpio17/direction 
 echo "1" > /sys/class/gpio/gpio17/value 
 echo "0" > /sys/class/gpio/gpio17/value 
+
+# Or the same but with high/low and not in/out
+echo "high" > /sys/class/gpio/gpio17/direction
+echo "low"  > /sys/class/gpio/gpio17/direction
 ```
 
 ## Links
