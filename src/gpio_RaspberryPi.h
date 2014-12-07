@@ -4,7 +4,7 @@
 /**
  * The main gpio header on the Raspberry PI, rev2
  */
-enum GPIO_Name {
+typedef enum GPIO_PinName {
     GPIO_Pin03 =  2,
     GPIO_Pin05 =  3,
     GPIO_Pin07 =  4,
@@ -22,6 +22,6 @@ enum GPIO_Name {
     GPIO_Pin23 = 11,
     GPIO_Pin24 =  8,
     GPIO_Pin26 =  7
-};
+} GPIO_Pin;
 
 #endif  // __GPIO_RASPBERRYPI_H
