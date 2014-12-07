@@ -25,3 +25,7 @@ echo "0" > /sys/class/gpio/gpio17/value
 * http://lawicel-shop.se/prod/Relay-Module---4-Ch-5-VDC_999096/ElecFreaks_91902/SWE/SEK
 * http://www.raspberrypi.org/
 
+## Raspberry Pi, relayboard
+
+A Raspberry PI connected with a ElecFreaks relayboard on pin11
+![Raspberry PI connected with a ElecFreaks relayboard on pin11](hw/RaspberryPI_pin11_to_ElecFreaks_relayboard.jpg)
