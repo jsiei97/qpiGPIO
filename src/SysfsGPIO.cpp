@@ -54,10 +54,11 @@ bool SysfsGPIO::configureGPIO(GPIO_Pin gpionr, QString direction)
         QTextStream out(&gpioExport);
         out << gpionr << "\n";
         gpioExport.close();
+        sleep(1);
     }
 
     {
-        if (!gpioDirection.open(QIODevice::WriteOnly))
+        if (!gpioDirection.open(QIODevice::WriteOnly | QIODevice::Text))
         {
             myErr() << gpioDirection.fileName();
             return false;
