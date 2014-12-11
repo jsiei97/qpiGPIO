@@ -1,8 +1,10 @@
 TEMPLATE = app
 TARGET = 
-DEPENDPATH  += . src
-INCLUDEPATH += . src
+DEPENDPATH  += src
+INCLUDEPATH += src
 
 # Input
-HEADERS += src/gpio_RaspberryPi.h src/SysfsGPIO.h
-SOURCES += src/main.cpp src/SysfsGPIO.cpp
+SOURCES += src/main.cpp 
+
+# The code that is "shared"
+include($$PWD/mod.pri)
