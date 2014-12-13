@@ -22,10 +22,11 @@
  */
 
 #include <QDebug>
+#include "DebugDefines.h"
+
 #include "gpio_RaspberryPi.h"
 #include "SysfsGPIO.h"
 
-#include "DebugDefines.h"
 
 int main()
 {
@@ -33,26 +34,50 @@ int main()
 
     SysfsGPIO gpio;
 
-    if(!gpio.configureGPIO(GPIO_Pin13, GPIO_DIRECTION_OUTPUT))
-    {
-        myErr() << "configure failed...";
-        return false;
-    }
+    // Configure the 4 gpio:s connected to the relay board.
+    if(!gpio.configureGPIO(GPIO_Pin11, GPIO_DIRECTION_OUTPUT)) { myErr() << "configure failed..."; return false; }
+    if(!gpio.configureGPIO(GPIO_Pin13, GPIO_DIRECTION_OUTPUT)) { myErr() << "configure failed..."; return false; }
+    if(!gpio.configureGPIO(GPIO_Pin15, GPIO_DIRECTION_OUTPUT)) { myErr() << "configure failed..."; return false; }
+    if(!gpio.configureGPIO(GPIO_Pin16, GPIO_DIRECTION_OUTPUT)) { myErr() << "configure failed..."; return false; }
 
-    for( int i=0 ; i<10 ; i++ )
+    //Start with all LOW
+    gpio.writeGPIO(GPIO_Pin11, GPIO_LOW);
+    gpio.writeGPIO(GPIO_Pin13, GPIO_LOW);
+    gpio.writeGPIO(GPIO_Pin15, GPIO_LOW);
+    gpio.writeGPIO(GPIO_Pin16, GPIO_LOW);
+
+    //Loop over them...
+    for( int i=0 ; i<12 ; i++ )
     {
-        if(i%2==0)
+        int j=i%4;
+        myOut() << i << j;
+        switch ( j )
         {
-            myOut() << "High";
-            gpio.writeGPIO(GPIO_Pin13, GPIO_HIGH);
-        }
-        else
-        {
-            myOut() << "Low";
-            gpio.writeGPIO(GPIO_Pin13, GPIO_LOW);
+            case 0 :
+                gpio.writeGPIO(GPIO_Pin16, GPIO_LOW);
+                gpio.writeGPIO(GPIO_Pin11, GPIO_HIGH);
+                break;
+            case 1 :
+                gpio.writeGPIO(GPIO_Pin11, GPIO_LOW);
+                gpio.writeGPIO(GPIO_Pin13, GPIO_HIGH);
+                break;
+            case 2 :
+                gpio.writeGPIO(GPIO_Pin13, GPIO_LOW);
+                gpio.writeGPIO(GPIO_Pin15, GPIO_HIGH);
+                break;
+            case 3 :
+                gpio.writeGPIO(GPIO_Pin15, GPIO_LOW);
+                gpio.writeGPIO(GPIO_Pin16, GPIO_HIGH);
+            default :
+                break;
         }
 
         sleep(1);
     }
 
+    //Stop with all LOW
+    gpio.writeGPIO(GPIO_Pin11, GPIO_LOW);
+    gpio.writeGPIO(GPIO_Pin13, GPIO_LOW);
+    gpio.writeGPIO(GPIO_Pin15, GPIO_LOW);
+    gpio.writeGPIO(GPIO_Pin16, GPIO_LOW);
 }
