@@ -33,3 +33,6 @@ echo "low"  > /sys/class/gpio/gpio17/direction
 
 A Raspberry PI connected with a ElecFreaks relayboard on pin11
 ![Raspberry PI connected with a ElecFreaks relayboard on pin11](hw/RaspberryPI_pin11_to_ElecFreaks_relayboard.jpg)
+
+# PWM
+* http://elinux.org/RPi_BCM2835_GPIOs
