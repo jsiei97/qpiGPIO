@@ -21,7 +21,17 @@ typedef enum GPIO_PinName {
     GPIO_Pin22 = 25,
     GPIO_Pin23 = 11,
     GPIO_Pin24 =  8,
-    GPIO_Pin26 =  7
+    GPIO_Pin26 =  7,
+    //Pin 27 to 40 is only for model B+
+    GPIO_Pin29 =  5,
+    GPIO_Pin31 =  6,
+    GPIO_Pin32 = 12,
+    GPIO_Pin33 = 13,
+    GPIO_Pin35 = 19,
+    GPIO_Pin36 = 16,
+    GPIO_Pin37 = 26,
+    GPIO_Pin38 = 20,
+    GPIO_Pin40 = 21
 } GPIO_Pin;
 
 #endif  // __GPIO_RASPBERRYPI_H
