@@ -5,6 +5,7 @@
  * The main gpio header on the Raspberry PI, rev2
  */
 typedef enum GPIO_PinName {
+    GPIO_NONE = 0, ///< Not a valid pin, used as error.
     GPIO_Pin03 =  2,
     GPIO_Pin05 =  3,
     GPIO_Pin07 =  4,

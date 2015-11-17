@@ -42,9 +42,14 @@ class SysfsGPIO
 {
     private:
     public:
-        bool configureGPIO(GPIO_Pin gpionr, QString direction);
+        static bool configureGPIO(GPIO_Pin gpionr, QString direction);
         //GPIO_State readGPIO(GPIO_Pin gpionr);
-        bool writeGPIO(GPIO_Pin gpionr, GPIO_State value);
+
+        static bool writeGPIO(GPIO_Pin gpionr, GPIO_State value);
+        static bool writeGPIO(GPIO_Pin gpionr, bool value);
+
+        static GPIO_Pin checkGPIO(QString nr);
+        static GPIO_Pin checkGPIO(int nr);
 };
 
 #endif // __SYSFSGPIO_H
