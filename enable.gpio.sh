@@ -5,6 +5,6 @@
 
 echo 17 > /sys/class/gpio/export
 echo "out" > /sys/class/gpio/gpio17/direction 
-chown :gpio /sys/class/gpio/gpio17/value 
-chmod g+w /sys/class/gpio/gpio17/value 
+chown :gpio /sys/class/gpio/gpio17/*
+chmod g+w /sys/class/gpio/gpio17/*
 
