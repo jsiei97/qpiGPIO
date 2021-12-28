@@ -22,6 +22,7 @@
  */
 
 #include <QDebug>
+#include <QThread>
 #include "DebugDefines.h"
 
 #include "gpio_RaspberryPi.h"
@@ -72,7 +73,7 @@ int main()
                 break;
         }
 
-        sleep(1);
+        QThread::sleep(1);
     }
 
     //Stop with all LOW

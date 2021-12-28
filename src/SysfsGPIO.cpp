@@ -24,6 +24,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QDebug>
+#include <QThread>
 
 #include "SysfsGPIO.h"
 #include "DebugDefines.h"
@@ -54,7 +55,7 @@ bool SysfsGPIO::configureGPIO(GPIO_Pin gpionr, QString direction)
         QTextStream out(&gpioExport);
         out << gpionr << "\n";
         gpioExport.close();
-        sleep(1);
+        QThread::sleep(1);
     }
 
     {
