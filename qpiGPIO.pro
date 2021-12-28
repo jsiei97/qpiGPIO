@@ -1,7 +1,9 @@
 TEMPLATE = app
-TARGET = 
-DEPENDPATH  += src
-INCLUDEPATH += src
+TARGET = qpiGPIO
+
+INCLUDEPATH += $$PWD
+DEPENDPATH  += src/
+INCLUDEPATH += src/
 
 # Input
 SOURCES += src/main.cpp 

@@ -3,8 +3,8 @@ DEPENDPATH  += $$PWD/src
 INCLUDEPATH += $$PWD/src
 
 # Input
-HEADERS += gpio_RaspberryPi.h
-HEADERS += DebugDefines.h
+HEADERS += $$PWD/src/gpio_RaspberryPi.h
+HEADERS += $$PWD/src/DebugDefines.h
 
-HEADERS += SysfsGPIO.h
-SOURCES += SysfsGPIO.cpp
+HEADERS += $$PWD/src/SysfsGPIO.h
+SOURCES += $$PWD/src/SysfsGPIO.cpp
